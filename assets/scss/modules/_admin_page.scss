@@ -1,0 +1,48 @@
+/* Dashboard Page Styling*/
+#mailpoet-subpage{
+	table{
+		thead{
+			text-align:left;
+			th{
+				&#subject{
+					width:15em;
+				}
+				&#link{
+					width:20em;
+				}
+				&#clicks{
+					width:7em;
+				}
+				&#sent{
+					width:12em;
+				}
+			}
+		}
+	}
+	.load-more-wrapper{
+		margin:15px 0;
+		text-align:center;
+	}
+	h2{
+		span{
+			font-size:0.85rem;
+			float:right;
+		}
+	}
+	.filters{
+		margin:15px 0;
+		a.active{
+			font-weight:bold;
+		}
+	}
+}
+@include media-query( min-phone ) {
+	// Styles 481px and up
+
+	
+} // @include media-query( min-phone )
+
+@include media-query( min-tablet ) {
+	
+
+}  // @include media-query( min-tablet )

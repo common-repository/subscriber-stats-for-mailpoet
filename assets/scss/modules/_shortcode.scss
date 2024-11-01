@@ -1,0 +1,450 @@
+/*Front End Shortcode Styling */
+$light-gray: #e3e3e3;
+$white: #ffffff;
+$gray: #cccccc;
+$dark-gray:#333333;
+*{
+	box-sizing:border-box;
+}
+/*Wrapper*/
+#geoc-tool-frontend{
+	width:100%;
+}
+#geoc-tool-frontend-sdg, #geoc-tool-frontend-theme {
+	width:100%;
+	position:relative;
+}
+/*Header Tabs*/
+#geoc-tool-header {
+	z-index:3;
+	right:0;
+	
+	.geoc-header-flex{
+		width:100%;
+		display:flex;
+		align-items:stretch;
+		justify-content:flex-end;
+		flex-wrap:nowrap;
+	}
+	.geoc-header-bottom-border {
+		width:100%;
+		height:3px;
+		background:$dark-gray;
+	}
+	.header-tab {
+		background:$white;
+		color:$dark-gray;
+		flex-grow:1;
+		//padding:5px 10px;
+		position:relative;
+		text-align:center;
+		cursor:pointer;
+		transition: all ease-in-out 0.2s;
+		max-width:125px;
+		text-transform:uppercase;
+		font-size:10px;
+		flex-grow:0;
+		span{
+			position:relative;
+			float:left;
+			width:100%;
+			padding:5px 10px;
+		}
+		&.active{
+			color:$white;
+			.header-tab-bg{
+				width:100%;
+			}
+		}//active
+		&:hover{
+			color:$white;
+			.header-tab-bg{
+				width:100%;
+			}
+		}//hover
+		.header-tab-bg{
+			position:absolute;
+			height:100%;
+			width:3px;
+			background:#333;
+			transition: all ease-in-out 0.2s;
+		}
+	}//header tab
+}//geoc tool header
+/*Breakpoints */
+#geoc-tool-frontend{
+	#geoc-legend-container{
+		width:80%;
+		margin:10px 10%;
+		display:none;
+		@include media-query( min-tablet ) {
+			z-index: 11;
+			position: absolute;
+			right: 15px;
+			top: 130px;
+			width: 130px;
+			margin: 0;
+		}
+		&.active{
+			display:block;
+		}
+		.swatch-wrapper {
+			display:flex;
+			align-items:center;
+			@include media-query( min-tablet ) {
+				display:block;
+			}
+		}
+		.each-legend{
+			width:auto;
+			display:flex;
+			align-items:center;
+			margin-right:7px;
+			@include media-query( min-tablet ) {
+				justify-content:space-between;
+				margin-bottom:7px;
+				margin-right:0px;
+			}
+			.legend-desc{
+				float:left;
+				margin-right:5px;
+			}
+			.legend-swatch{
+				width:25px;
+				height:25px;
+				@include media-query( min-tablet ) {
+					float:right;
+				}
+			}
+		}
+	}
+}
+/*Year Selector*/
+#geoc-year-select-container {
+	width:80%;
+	margin:10px 10%;
+	display:none;
+	
+	@include media-query( min-tablet ) {
+		z-index: 11;
+		position:absolute;
+		right:15px;
+		top:50px;
+		width:auto;
+		margin:0;
+	}
+	&.active{
+		display:block;
+	}
+	#geoc-year-select {
+		color:$white;
+		font-size:1.15rem;
+		background-color:$gray;
+		cursor:pointer;
+		padding:7px;
+	}
+}
+/*Content Tabs*/
+#geoc-tool-tab-wrapper {
+	position:relative;
+	padding:0 0 0 0;
+	.shortcode-tab{
+		max-height:0px;
+		overflow:hidden;
+		opacity:0;
+		left:-9999px;
+		position:relative;
+		&.active{
+			opacity:1;
+			z-index:1;
+			max-height:none;
+			left:0;
+		}//active
+	}//shortcode tab
+}//geoc tool tab wrapper
+
+#sdg-tab-contents,
+#graph-tab-contents,
+#description-tab-contents{
+	padding:15px 0;
+}
+/*Graph Tab */
+#graph-tab-contents{
+	.pie-chart-description,
+	.bar-graph-description,
+	.line-graph-description{
+		margin-bottom:25px;
+	}
+}
+/*SDG Tab*/
+#sdg-tab-contents, #theme-tab-contents{
+	padding:15px 0;
+	.sdg-logo{
+		max-width:100px;
+		margin-bottom:0px;
+		margin-right:10px;
+	}
+	h2{
+		display:flex;
+		align-items:center;
+		flex-wrap:wrap;
+	}
+	.each-sdg-wrapper, .each-theme-wrapper {
+		display:inline-block;
+		margin-right:1px;
+		cursor:pointer;
+		float:left;
+		&.hidden{
+			display:none;
+		}
+		.each-parent-sdg-icon-wrapper, .each-parent-theme-icon-wrapper{
+			position:relative;
+			float:left;
+			text-align:center;
+			h4{
+				color:$white;
+				text-align:center;
+				font-size:1.15rem;
+				margin:0px;
+				width:100%;
+			}//end h4
+			img,svg{
+				max-width:200px;
+				float:left;
+				margin:0px;
+			} //endimg
+			@include media-query(min-desktop){
+				&::after{
+					height:0px;
+					position:absolute;
+					bottom:0px;
+					left:0px;
+					right:0px;
+					width:100%;
+					background:rgba(0,0,0,0.5);
+					content:'+';
+					font-size:2.25rem;
+					color:$white;
+					text-align:center;
+					display:flex;
+					align-items:center;
+					justify-content:center;
+					float:left;
+					transition: all ease-in-out 0.2s;
+					z-index:10;
+					opacity:0;
+				}// end after
+				&:hover{
+					&::after{
+						height:100%;
+						opacity:1;
+					}// end after
+
+				}
+			}
+		}// end each-parent-sdg-icon-wrapper
+		.each-parent-theme-icon-wrapper{
+			text-align:center;
+			padding:10px;
+			img, svg{
+				max-width:150px;
+				float:none;
+				margin:auto;
+			}
+		}//end theme specific styles
+		.each-sdg, .each-theme{
+			cursor:pointer;
+			text-align:center;
+			width:100%;
+			display:inline-block;
+			display:flex;
+			align-items:stretch;
+			.each-sdg-icon-wrapper, .each-theme-icon-wrapper {
+				display:inline-block;
+				padding:0;
+				background:#ccc;
+				width:auto;
+				img,svg{
+					max-width:300px;
+				}
+				span{
+					text-transform:uppercase;
+					font-weight:bold;
+					color:#fff;
+					width:100%;
+					display:inline-block;
+				}//end span
+			} //end each sdg icon wrapper
+			.each-sdg-text-wrapper, .each-theme-text-wrapper{
+				width:70%;
+				margin-left:5%;
+				display:flex;
+				align-items:center;
+				flex-wrap:wrap;
+				
+			} //end sdg text wrapper
+		}//each sdg
+		.sdg-children {
+			width:100%;
+		}//sdg children
+	}//each sdg wrapper
+	.sdg-details, .theme-details{
+		opacity:0;
+		z-index:-1;
+		//transition: all ease-in-out 0.2s;
+		position:absolute;
+		width:100%;
+		height:0;
+		background:$white;
+		top:0px;
+		left:0px;
+		overflow:hidden;
+
+		&.active{
+			opacity:1;
+			z-index:2;
+			position:relative;
+			height:100%;
+			
+		}
+		.close-details{
+			position:absolute;
+			top:0;
+			right:0;
+			width:40px;
+			height:40px;
+			cursor:pointer;
+			div{
+				width:40px;
+				height:8px;
+				transform:rotate(45deg);
+				background:$light-gray;
+				position:relative;
+				top:15px;
+				transition: all ease-in-out 0.2s;
+			}//end span
+			&:after{
+				content:'';
+				width:40px;
+				height:8px;
+				transform:rotate(-45deg);
+				background:$light-gray;
+				float:left;
+				position:relative;
+				top:7px;
+				transition: all ease-in-out 0.2s;
+			}//end after
+			&:hover{
+				div{
+					transform:rotate(-45deg);
+					background:$gray;
+				}
+				&:after{
+					transform:rotate(45deg);
+					background:$gray;
+				}
+			}
+		} // end close details
+		.above-children-wrapper{
+			width:100%;
+			display:flex;
+			align-items:flex-start;
+			flex-wrap:wrap;
+			.each-sdg-icon-wrapper, .each-theme-icon-wrapper{
+				width:100%;
+				margin-right:0%;
+				margin-bottom:25px;
+				display:flex;
+				align-items:center;
+				justify-content:center;
+				@include media-query( min-desktop ) {
+					max-width:30%;
+					margin-right:3%;
+					margin-bottom:0px;
+				}
+
+				img, svg{
+					margin:0px;
+					float:left;
+					max-width:100%;
+					width:300px;
+				}
+			}
+			
+			.each-sdg-text-wrapper, .each-theme-text-wrapper{
+				width:100%;
+				display:inline-block;
+				float:left;
+				@include media-query( min-desktop ) {
+					max-width:67%;
+					//margin-right:3%;
+				}
+				h4{
+					margin-top:0px;
+					max-width:90%;
+				}
+			}
+			.un-link{
+				text-align:right;
+			}
+		}//end above children wrapper
+		.each-sdg-child{
+			margin-bottom:5px;
+			.title-wrapper{
+				text-align:center;
+				padding:2px;
+				color:$white;
+				font-weight:bold;
+				font-size:18px;
+				margin-right:10px;
+				width:60px;
+				float:left;
+			}// end title wrapper
+			.description-wrapper{
+				width:calc(100%-70);
+				p{
+					margin-top:0px;
+				}//end p
+			} //description -wrapper
+		} // end each-sdg-child
+	}//end details
+}// sdg tab contents
+/*Map Tab*/
+.shortcode-tab-map-wrapper{
+	position:relative;
+	#map-loader {
+		position:absolute;
+		background:rgba(255,255,255,.5);
+		align-items:center;
+		justify-content: center;
+		height:100%;
+		width:100%;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		display:none;
+		&.active{
+			display:flex;
+			z-index:9999;
+		}
+	}
+
+
+}
+.shortcode-tab{
+	.error{
+		width:100%;
+		margin:15px 0;
+		padding:5px 10px;
+		font-size:1.85rem;
+		border-left:3px solid $dark-gray;
+		background:$light-gray;
+	}
+}
+/*Loader*/
+.loader-wrapper{
+	padding:50px;
+	text-align:center;
+	width:100%;
+}//loader wrapper

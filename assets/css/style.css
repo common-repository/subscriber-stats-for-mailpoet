@@ -1,0 +1,978 @@
+/*********************
+IMPORTING MODULES
+Modules are reusable blocks or elements we use throughout the project.
+We can break them up as much as we want or just keep them all in one.
+I mean, you can do whatever you want. The world is your oyster. Unless
+you hate oysters, then the world is your peanut butter & jelly sandwich.
+*********************/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Variables
+
+Here is where we declare all our variables like colors, fonts,
+base values, and defaults. We want to make sure this file ONLY
+contains variables that way our files don't get all messy.
+No one likes a mess.
+
+******************************************************************/
+/*********************
+COLORS
+Need help w/ choosing your colors? Try this site out:
+http://0to255.com/
+*********************/
+/*
+Here's a great tutorial on how to
+use color variables properly:
+http://sachagreif.com/sass-color-variables/
+*/
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Mixins Stylesheet
+
+This is where you can take advantage of Sass' great features: Mixins.
+I won't go in-depth on how they work exactly,
+there are a few articles below that will help do that. What I will
+tell you is that this will help speed up simple changes like
+changing a color or adding CSS3 techniques gradients.
+
+A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+remember less is more.
+
+Helpful:
+http://sachagreif.com/useful-sass-mixins/
+http://thesassway.com/intermediate/leveraging-sass-mixins-for-cleaner-code
+http://web-design-weekly.com/blog/2013/05/12/handy-sass-mixins/
+
+******************************************************************/
+/*********************
+TRANSITION
+*********************/
+/*
+I totally rewrote this to be cleaner and easier to use.
+You'll need to be using Sass 3.2+ for these to work.
+Thanks to @anthonyshort for the inspiration on these.
+USAGE: @include transition(all 0.2s ease-in-out);
+*/
+/*********************
+CSS3 GRADIENTS
+Be careful with these since they can
+really slow down your CSS. Don't overdo it.
+*********************/
+/* @include css-gradient(#dfdfdf,#f8f8f8); */
+/*********************
+BOX SIZING
+*********************/
+/* @include box-sizing(border-box); */
+/* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+/*********************
+ANIMATION
+*********************/
+/*********************
+CIRCLE & TRIANGLE
+*********************/
+/*********************
+MEDIA QUERIES
+*********************/
+/*ADMIN Styling */
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+a.toggle, .bar-graph-toggle, .pie-chart-toggle, .line-graph-toggle, .indicator-map-toggle {
+  cursor: pointer; }
+
+.admin-loader-wrapper {
+  padding: 15px;
+  text-align: center; }
+
+#normal-sortables .postbox .submit, #normal-sortables .postbox .form-wrapper, .geoc-meta-boxes .submit, .geoc-meta-boxes .form-wrapper {
+  float: none;
+  text-align: right; }
+
+.geoc-meta-boxes {
+  min-width: 255px;
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  position: relative;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
+  margin-bottom: 20px;
+  padding: 0;
+  line-height: 1; }
+
+.postbox.green-border, .geoc-meta-boxes.green-border {
+  border-left: 3px solid green; }
+
+#indicator-associated-geography {
+  margin-top: 20px; }
+
+#upload-csv-show-modal-button p.submit {
+  padding-bottom: 0px; }
+
+.admin-button {
+  font-family: inherit;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 26px;
+  height: 28px;
+  margin: 0;
+  padding: 0 10px 1px;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-appearance: none;
+  border-radius: 3px;
+  white-space: nowrap;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: baseline;
+  color: #555;
+  border-color: #ccc;
+  background: #f7f7f7;
+  -webkit-box-shadow: 0 1px 0 #ccc;
+  box-shadow: 0 1px 0 #ccc; }
+  .admin-button:hover {
+    background: #fafafa;
+    border-color: #999;
+    color: #23282d; }
+
+#iisd-csv-uploader {
+  background: #f2f2f2;
+  padding: 20px; }
+
+#indicator_year_repeater .toggle-benchmark-wrapper label,
+#indicator_year_repeater .toggle-graph-wrapper label {
+  min-width: 150px;
+  float: left;
+  margin-right: 7px; }
+
+#indicator_year_repeater .map-settings-wrapper,
+#indicator_year_repeater .graph-settings-wrapper {
+  padding: 0px 2.5%; }
+
+#indicator_year_repeater .geoc-indicator-individual-repeaters {
+  padding: 10px 2.5%; }
+
+#line-graph-container, #bar-graph-container, #pie-chart-container, #indicator-map-container {
+  padding: 15px 2.5%;
+  margin-bottom: 15px;
+  background: #f1f1f1; }
+
+#wp-bar-graph-wrap, #wp-pie-chart-wrap, #wp-line-graph-wrap {
+  margin-bottom: 15px; }
+
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Grid Stylesheet
+
+I've seperated the grid so you can swap it out easily. It's
+called at the top the style.scss stylesheet.
+
+There are a ton of grid solutions out there. You should definitely
+experiment with your own. Here are some recommendations:
+
+http://gridsetapp.com - Love this site. Responsive Grids made easy.
+http://susy.oddbird.net/ - Grids using Compass. Very elegant.
+http://gridpak.com/ - Create your own responsive grid.
+https://github.com/dope/lemonade - Neat lightweight grid.
+
+
+The grid below is a custom built thingy I modeled a bit after
+Gridset. It's VERY basic and probably shouldn't be used on
+your client projects. The idea is you learn how to roll your
+own grids. It's better in the long run and allows you full control
+over your project's layout.
+
+******************************************************************/
+.last-col {
+  float: right;
+  padding-right: 0 !important; }
+
+/*
+Mobile Grid Styles
+These are the widths for the mobile grid.
+There are four types, but you can add or customize
+them however you see fit.
+*/
+@media only screen and (max-width: 767px) {
+  .m-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .m-1of2, .m-2of4, .m-3of6, .m-4of8, .m-5of10, .m-6of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .m-1of3, .m-2of6, .m-3of9, .m-4of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 33.33%; }
+  .m-2of3, .m-4of6, .m-6of9, .m-8of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66%; }
+  .m-1of4, .m-2of8, .m-3of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 25%; }
+  .m-3of4, .m-6of8, .m-9of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 75%; }
+  .m-1of5, .m-2of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .m-2of5, .m-4of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 40%; }
+  .m-3of5, .m-6of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 60%; }
+  .m-4of5, .m-8of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 80%; }
+  .m-1of6, .m-2of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.6666666667%; }
+  .m-1of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 14.2857142857%; }
+  .m-2of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 28.5714286%; }
+  .m-3of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 42.8571429%; }
+  .m-4of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 57.1428572%; }
+  .m-5of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 71.4285715%; }
+  .m-6of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 85.7142857%; }
+  .m-1of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 12.5%; }
+  .m-3of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 37.5%; }
+  .m-5of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 62.5%; }
+  .m-7of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 87.5%; }
+  .m-1of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 11.1111111111%; }
+  .m-2of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 22.2222222222%; }
+  .m-4of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 44.4444444444%; }
+  .m-5of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 55.5555555555%; }
+  .m-7of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 77.7777777777%; }
+  .m-8of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 88.8888888888%; }
+  .m-1of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 10%; }
+  .m-3of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .m-7of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 70%; }
+  .m-9of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90%; }
+  .m-1of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 9.09090909091%; }
+  .m-2of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 18.18181818182%; }
+  .m-3of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 27.27272727273%; }
+  .m-4of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 36.36363636364%; }
+  .m-5of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 45.45454545455%; }
+  .m-6of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 54.54545454546%; }
+  .m-7of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 63.63636363637%; }
+  .m-8of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 72.72727272728%; }
+  .m-9of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 81.81818181819%; }
+  .m-10of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90.9090909091%; }
+  .m-1of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 8.33%; }
+  .m-5of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 41.65%; }
+  .m-7of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 58.1%; }
+  .m-10of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 83.3%; }
+  .m-11of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 91.63%; } }
+
+@media only screen and (min-width: 481px) and (max-width: 767px) {
+  .h-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .h-1of2, .h-2of4, .h-3of6, .h-4of8, .h-5of10, .h-6of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .h-1of3, .h-2of6, .h-3of9, .h-4of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 33.33%; }
+  .h-2of3, .h-4of6, .h-6of9, .h-8of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66%; }
+  .h-1of4, .h-2of8, .h-3of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 25%; }
+  .h-3of4, .h-6of8, .h-9of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 75%; }
+  .h-1of5, .h-2of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .h-2of5, .h-4of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 40%; }
+  .h-3of5, .h-6of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 60%; }
+  .h-4of5, .h-8of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 80%; }
+  .h-1of6, .h-2of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.6666666667%; }
+  .h-1of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 14.2857142857%; }
+  .h-2of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 28.5714286%; }
+  .h-3of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 42.8571429%; }
+  .h-4of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 57.1428572%; }
+  .h-5of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 71.4285715%; }
+  .h-6of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 85.7142857%; }
+  .h-1of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 12.5%; }
+  .h-3of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 37.5%; }
+  .h-5of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 62.5%; }
+  .h-7of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 87.5%; }
+  .h-1of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 11.1111111111%; }
+  .h-2of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 22.2222222222%; }
+  .h-4of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 44.4444444444%; }
+  .h-5of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 55.5555555555%; }
+  .h-7of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 77.7777777777%; }
+  .h-8of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 88.8888888888%; }
+  .h-1of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 10%; }
+  .h-3of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .h-7of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 70%; }
+  .h-9of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90%; }
+  .h-1of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 9.09090909091%; }
+  .h-2of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 18.18181818182%; }
+  .h-3of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 27.27272727273%; }
+  .h-4of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 36.36363636364%; }
+  .h-5of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 45.45454545455%; }
+  .h-6of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 54.54545454546%; }
+  .h-7of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 63.63636363637%; }
+  .h-8of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 72.72727272728%; }
+  .h-9of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 81.81818181819%; }
+  .h-10of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90.9090909091%; }
+  .h-1of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 8.33%; }
+  .h-5of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 41.65%; }
+  .h-7of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 58.1%; }
+  .h-10of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 83.3%; }
+  .h-11of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 91.63%; } }
+
+/* Portrait tablet to landscape */
+@media only screen and (min-width: 768px) and (max-width: 1029px) {
+  .t-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .t-1of2, .t-2of4, .t-3of6, .t-4of8, .t-5of10, .t-6of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .t-1of3, .t-2of6, .t-3of9, .t-4of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 33.33%; }
+  .t-2of3, .t-4of6, .t-6of9, .t-8of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66%; }
+  .t-1of4, .t-2of8, .t-3of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 25%; }
+  .t-3of4, .t-6of8, .t-9of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 75%; }
+  .t-1of5, .t-2of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .t-2of5, .t-4of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 40%; }
+  .t-3of5, .t-6of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 60%; }
+  .t-4of5, .t-8of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 80%; }
+  .t-1of6, .t-2of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.6666666667%; }
+  .t-1of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 14.2857142857%; }
+  .t-2of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 28.5714286%; }
+  .t-3of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 42.8571429%; }
+  .t-4of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 57.1428572%; }
+  .t-5of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 71.4285715%; }
+  .t-6of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 85.7142857%; }
+  .t-1of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 12.5%; }
+  .t-3of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 37.5%; }
+  .t-5of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 62.5%; }
+  .t-7of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 87.5%; }
+  .t-1of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 11.1111111111%; }
+  .t-2of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 22.2222222222%; }
+  .t-4of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 44.4444444444%; }
+  .t-5of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 55.5555555555%; }
+  .t-7of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 77.7777777777%; }
+  .t-8of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 88.8888888888%; }
+  .t-1of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 10%; }
+  .t-3of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .t-7of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 70%; }
+  .t-9of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90%; }
+  .t-1of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 9.09090909091%; }
+  .t-2of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 18.18181818182%; }
+  .t-3of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 27.27272727273%; }
+  .t-4of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 36.36363636364%; }
+  .t-5of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 45.45454545455%; }
+  .t-6of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 54.54545454546%; }
+  .t-7of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 63.63636363637%; }
+  .t-8of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 72.72727272728%; }
+  .t-9of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 81.81818181819%; }
+  .t-10of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90.9090909091%; }
+  .t-1of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 8.33%; }
+  .t-5of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 41.65%; }
+  .t-7of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 58.1%; }
+  .t-10of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 83.3%; }
+  .t-11of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 91.63%; } }
+
+/* Landscape to small desktop */
+@media only screen and (min-width: 1030px) {
+  .d-all {
+    float: left;
+    padding-right: 0.75em;
+    width: 100%;
+    padding-right: 0; }
+  .d-1of2, .d-2of4, .d-3of6, .d-4of8, .d-5of10, .d-6of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 50%; }
+  .d-1of3, .d-2of6, .d-3of9, .d-4of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 33.33%; }
+  .d-2of3, .d-4of6, .d-6of9, .d-8of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 66.66%; }
+  .d-1of4, .d-2of8, .d-3of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 25%; }
+  .d-3of4, .d-6of8, .d-9of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 75%; }
+  .d-1of5, .d-2of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .d-2of5, .d-4of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 40%; }
+  .d-3of5, .d-6of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 60%; }
+  .d-4of5, .d-8of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 80%; }
+  .d-1of6, .d-2of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 16.6666666667%; }
+  .d-1of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 14.2857142857%; }
+  .d-2of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 28.5714286%; }
+  .d-3of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 42.8571429%; }
+  .d-4of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 57.1428572%; }
+  .d-5of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 71.4285715%; }
+  .d-6of7 {
+    float: left;
+    padding-right: 0.75em;
+    width: 85.7142857%; }
+  .d-1of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 12.5%; }
+  .d-3of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 37.5%; }
+  .d-5of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 62.5%; }
+  .d-7of8 {
+    float: left;
+    padding-right: 0.75em;
+    width: 87.5%; }
+  .d-1of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 11.1111111111%; }
+  .d-2of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 22.2222222222%; }
+  .d-4of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 44.4444444444%; }
+  .d-5of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 55.5555555555%; }
+  .d-7of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 77.7777777777%; }
+  .d-8of9 {
+    float: left;
+    padding-right: 0.75em;
+    width: 88.8888888888%; }
+  .d-1of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 10%; }
+  .d-3of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 20%; }
+  .d-7of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 70%; }
+  .d-9of10 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90%; }
+  .d-1of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 9.09090909091%; }
+  .d-2of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 18.18181818182%; }
+  .d-3of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 27.27272727273%; }
+  .d-4of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 36.36363636364%; }
+  .d-5of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 45.45454545455%; }
+  .d-6of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 54.54545454546%; }
+  .d-7of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 63.63636363637%; }
+  .d-8of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 72.72727272728%; }
+  .d-9of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 81.81818181819%; }
+  .d-10of11 {
+    float: left;
+    padding-right: 0.75em;
+    width: 90.9090909091%; }
+  .d-1of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 8.33%; }
+  .d-5of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 41.65%; }
+  .d-7of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 58.1%; }
+  .d-10of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 83.3%; }
+  .d-11of12 {
+    float: left;
+    padding-right: 0.75em;
+    width: 91.63%; } }
+
+/* Dashboard Page Styling*/
+#mailpoet-subpage table thead {
+  text-align: left; }
+  #mailpoet-subpage table thead th#subject {
+    width: 15em; }
+  #mailpoet-subpage table thead th#link {
+    width: 20em; }
+  #mailpoet-subpage table thead th#clicks {
+    width: 7em; }
+  #mailpoet-subpage table thead th#sent {
+    width: 12em; }
+
+#mailpoet-subpage .load-more-wrapper {
+  margin: 15px 0;
+  text-align: center; }
+
+#mailpoet-subpage h2 span {
+  font-size: 0.85rem;
+  float: right; }
+
+#mailpoet-subpage .filters {
+  margin: 15px 0; }
+  #mailpoet-subpage .filters a.active {
+    font-weight: bold; }

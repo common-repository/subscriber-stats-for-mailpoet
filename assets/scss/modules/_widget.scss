@@ -1,0 +1,288 @@
+/* Front End Widget Styling*/
+#geoc-sidebar-filter {
+	position:fixed;
+	left:0px;
+	top:0px;
+	overflow:visible;
+	background:$light-gray;
+	height:100%;
+	#geoc-tax-filter{
+		z-index:9;
+		position:relative;
+		background:$light-gray;
+		height:100%;
+		max-width:50px;
+		width:50px;
+		overflow-x:hidden;
+		overflow-y:auto;
+		.each-filter-wrapper{
+			cursor:pointer;
+			color:#fff;
+			float:left;
+			width:100%;
+			position:relative;
+			.each-filter-bg{
+				width:100%;
+				height:4px;
+				background-color:$dark-gray;
+				position:absolute;
+				transition:all ease-in-out 0.2s;
+				content:'';
+				float:left;
+				bottom:0px;
+				left:0px;
+				right:0px;
+			}//end after
+			&:hover, &.active{
+				.each-filter-bg{
+					height:100%;
+				}//end after
+				.geoc-theme-icon[src$=".png"]{
+					filter:invert(100) brightness(100);
+				}// end geoc theme icon
+				svg{
+					fill:$white;
+					path, circle, rect, polygon{
+						fill:$white;
+					}	
+					polyline {
+						stroke: $white;
+					}
+				}
+				.each-filter-inner{
+					.each-filter-flex{
+						.small-hover{
+							opacity:1;
+							top:0px;
+						}// end small hover
+						.term-icon-wrapper{
+							top:0px;
+						}//end term icon wrapper
+					}//end each filter flex
+				}//end each filter inner
+			}//end hover
+			.each-filter-inner{
+				padding:5px 10px 10px 10px;
+				float:left;
+				width:100%;
+				box-sizing:border-box;
+				.each-filter-flex{
+					position:relative;
+					text-align:center;
+					transition:all ease-in-out 0.2s;
+					z-index:9;
+					img,svg{
+						max-width:25px;
+						max-height:25px;
+						float:none;
+						margin:auto;
+						transition:all ease-in-out 0.2s;
+
+					}//end img,svg
+					.term-icon-wrapper{
+						transition:all ease-in-out 0.2s;
+						width:100%;
+						top:10px;
+						position:relative;
+					} // end term icon wrapper
+					.small-hover{
+						transition:all ease-in-out 0.2s;
+						position:relative;
+						top:10px;
+						opacity:0;
+						text-align:center;
+						font-size:9px;
+						width:100%;
+						line-height:9px;
+					}//end small hover
+					
+
+				} // end each-filter-flex
+				
+			}//end each-filter-inner
+			&.each-filter-sdg{
+				.each-filter-inner{
+					padding:0px;
+					.each-filter-flex{
+						.term-icon-wrapper{
+							top:0px;
+							img,svg{
+								max-width:100%;
+								max-height:none;
+								float:left;
+								transition:all ease-in-out 0.2s;
+
+							}//end img,svg
+						}//term icon wrapper
+					}//emd each filter flex
+				}// end each filter inner
+			}// emd each-filter-sdg
+		}//end each-filter-wrapper
+	} //end geoc-tax-filter
+	#geoc-indicators-wrapper {
+		z-index:7;
+		position:relative;
+		h4{
+			color:$white;
+			margin-top:0px;
+		}
+		
+		.each-indicator {
+			display:flex;
+			align-items:center;
+			flex-wrap:center;
+			flex-wrap:nowrap;
+			padding:10px 0px;
+			border-bottom:1px solid $white;
+			transition:all ease-in-out 0.2s;
+			cursor:pointer;
+			text-decoration:none;
+			color:$white;
+			&:last-of-type{
+				border-bottom:0px;
+			}// end last of type
+			.title-wrapper{
+				width:auto;
+				max-width:63%;
+			}// end title wrapper
+			.thumbnail-wrapper{
+				width:auto;
+				max-width:37%;
+			}
+			img,svg{
+				width:20px;
+				max-height:20px;
+				margin-right:7px;
+				box-shadow:none;
+				&.geoc-theme-icon[src$=".png"]{
+					filter:brightness(0) invert(100%);
+				}
+			}//end img
+								
+			svg{
+				fill:$white;
+				path, circle, rect, polygon{
+					fill:$white;
+				}	//end path circle rect
+				polyline {
+					stroke: $white;
+				}//polyline
+			}//end svg
+			span{
+				font-weight:bold;
+			}//end span
+			&:hover, &.active{
+				background:rgba(255,255,255,.15);
+			}//hover
+
+		}// end each indicator
+		.each-filter-indicator-wrapper{
+			opacity:0;
+			position:fixed;
+			transform:translateX(-100%);
+			max-width:300px;
+			top:0px;
+			padding:25px;
+			color:$white;
+			height:100%;
+			overflow-y:auto;
+			background-color:$dark-gray;
+			transition:transform ease-in-out 0.2s;
+			&.active{
+				opacity:1;
+				transform:translateX(50px);
+			}//end &.active
+			.close-indicator{
+				position:absolute;
+				top:5px;
+				right:10px;
+				width:25px;
+				height:25px;
+				cursor:pointer;
+				opacity:0.5;
+				div{
+					width:25px;
+					height:3px;
+					transform:rotate(45deg);
+					background:$white;
+					position:relative;
+					top:15px;
+					transition: all ease-in-out 0.2s;
+					
+				}//end span
+				&:after{
+					content:'';
+					width:25px;
+					height:3px;
+					transform:rotate(-45deg);
+					background:$white;
+					float:left;
+					position:relative;
+					top:12px;
+					transition: all ease-in-out 0.2s;
+					
+				}//end after
+				&:hover{
+					opacity:0.75;
+					div{
+						transform:rotate(-45deg);
+					}
+					&:after{
+						transform:rotate(45deg);
+					}
+				}
+			} // end close indicator
+		}//end each-filter-indicator-wrapper
+		&.geoc-indicators-sdg{
+			.each-filter-indicator-wrapper{
+				.each-indicator{
+					padding:10px;
+				}//end each-indicator
+			}//end each filter indicator wrapper
+		}// end geoc-indicators-wrapper
+	}	//end geoc-indicators-wrapper
+}//end geoc-sidebar-filter
+
+//logged in styles
+.logged-in{
+	#geoc-sidebar-filter {
+		top:32px;
+		#geoc-indicators-wrapper .each-filter-indicator-wrapper{
+			top:32px;
+		}
+	}
+}
+
+@include media-query( min-phone ) {
+	// Styles 481px and up
+
+	
+} // @include media-query( min-phone )
+
+@include media-query( min-tablet ) {
+	#geoc-sidebar-filter {
+
+		#geoc-tax-filter{
+			width:75px;
+			max-width:75px;
+			.each-filter-wrapper{
+				.each-filter-inner{
+					.each-filter-flex{
+						.small-hover{
+							hyphens:none;
+						}
+					}//end each filter flex
+				}//end each filter inner
+			}//end each filter wrapper
+		} //end geoc tax filter
+		#geoc-indicators-wrapper {
+			.each-filter-indicator-wrapper{
+				&.active{
+					transform:translateX(75px);
+				}//end active
+			}// end each filter indicator wrapper
+				
+		}//end geoc indicators wrapper
+	}//end geoc sidebar filter
+
+}  // @include media-query( min-tablet )

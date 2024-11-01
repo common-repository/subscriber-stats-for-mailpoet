@@ -1,0 +1,107 @@
+/*ADMIN Styling */
+$light-gray: #e3e3e3;
+$white: #ffffff;
+$gray: #cccccc;
+$dark-gray:#333333;
+*{
+	box-sizing:border-box;
+}
+
+//toggle hover states
+a.toggle, .bar-graph-toggle, .pie-chart-toggle, .line-graph-toggle, .indicator-map-toggle {
+	cursor:pointer;
+}
+
+.admin-loader-wrapper{
+	padding:15px;
+	text-align:center;
+}
+#normal-sortables .postbox .submit, #normal-sortables .postbox .form-wrapper, .geoc-meta-boxes .submit, .geoc-meta-boxes .form-wrapper {
+	float:none;
+	text-align:right;
+}
+
+.geoc-meta-boxes {
+	min-width: 255px;
+	border: 1px solid #e5e5e5;
+	background: #fff;
+	position: relative;
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	margin-bottom: 20px;
+	padding: 0;
+	line-height: 1;
+}
+
+.postbox.green-border, .geoc-meta-boxes.green-border{
+	border-left:3px solid green;
+}
+
+#indicator-associated-geography {
+	margin-top:20px;
+}
+
+#upload-csv-show-modal-button p.submit{
+	padding-bottom:0px;
+}
+
+.admin-button{
+	font-family:inherit;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 26px;
+	height: 28px;
+	margin: 0;
+	padding: 0 10px 1px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	white-space: nowrap;
+	box-sizing: border-box;
+	vertical-align: baseline;
+	color: #555;
+	border-color: #ccc;
+	background: #f7f7f7;
+	box-shadow: 0 1px 0 #ccc;
+	&:hover{
+		background: #fafafa;
+		border-color: #999;
+		color: #23282d;
+	}
+}
+#iisd-csv-uploader {
+	background:#f2f2f2;
+	padding:20px;
+	
+}
+//indicator year repeater stuff
+#indicator_year_repeater{
+	.toggle-benchmark-wrapper,
+	.toggle-graph-wrapper{
+		label{
+			min-width:150px;
+			float:left;
+			margin-right:7px;
+
+		}
+	}
+	
+	.map-settings-wrapper,
+	.graph-settings-wrapper{
+		padding:0px 2.5%;
+	}
+	.geoc-indicator-individual-repeaters {
+		padding:10px 2.5%;
+	}
+}
+#line-graph-container, #bar-graph-container, #pie-chart-container, #indicator-map-container{
+	padding:15px 2.5%;
+	margin-bottom:15px;
+	background:#f1f1f1;
+}
+
+#wp-bar-graph-wrap, #wp-pie-chart-wrap, #wp-line-graph-wrap{
+	margin-bottom:15px;
+}
